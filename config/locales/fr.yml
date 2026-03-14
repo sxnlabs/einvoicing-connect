@@ -1,0 +1,13 @@
+fr:
+  einvoicing:
+    connect:
+      ppf:
+        auth_failed: "Échec de la requête de jeton OAuth : %{code} %{body}"
+        unauthorized: "Non autorisé : %{body}"
+        forbidden: "Accès interdit : %{body}"
+        not_found: "Non trouvé : %{body}"
+        api_error: "Erreur API %{code} : %{body}"
+        structure_not_found: "SIRET acheteur %{siret} non trouvé dans Chorus Pro"
+      fr:
+        siret_api_error: "Échec de la recherche SIRET : %{message}"
+        siret_not_found: "Aucune entreprise trouvée pour le SIREN : %{siren}"

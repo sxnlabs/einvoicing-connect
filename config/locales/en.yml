@@ -1,0 +1,13 @@
+en:
+  einvoicing:
+    connect:
+      ppf:
+        auth_failed: "OAuth token request failed: %{code} %{body}"
+        unauthorized: "Unauthorized: %{body}"
+        forbidden: "Forbidden: %{body}"
+        not_found: "Not found: %{body}"
+        api_error: "API error %{code}: %{body}"
+        structure_not_found: "Buyer SIRET %{siret} not found in Chorus Pro"
+      fr:
+        siret_api_error: "SIRET lookup failed: %{message}"
+        siret_not_found: "No company found for SIREN: %{siren}"
