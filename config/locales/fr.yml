@@ -8,6 +8,7 @@ fr:
         not_found: "Non trouvé : %{body}"
         api_error: "Erreur API %{code} : %{body}"
         structure_not_found: "SIRET acheteur %{siret} non trouvé dans Chorus Pro"
+        missing_technical_account: "Le compte technique Chorus Pro (identifiant/mot de passe) est requis pour la soumission API"
       fr:
         siret_api_error: "Échec de la recherche SIRET : %{message}"
         siret_not_found: "Aucune entreprise trouvée pour le SIREN : %{siren}"

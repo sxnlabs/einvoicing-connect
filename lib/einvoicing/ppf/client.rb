@@ -13,12 +13,15 @@ module Einvoicing
 
       attr_reader :sandbox
 
-      def initialize(client_id:, client_secret:, sandbox: true)
-        @client_id        = client_id
-        @client_secret    = client_secret
-        @sandbox          = sandbox
-        @token            = nil
-        @token_expires_at = nil
+      def initialize(client_id:, client_secret:, sandbox: true,
+                     technical_login: nil, technical_password: nil)
+        @client_id          = client_id
+        @client_secret      = client_secret
+        @sandbox            = sandbox
+        @technical_login    = technical_login
+        @technical_password = technical_password
+        @token              = nil
+        @token_expires_at   = nil
       end
 
       # Returns current access token, refreshing if expired.
@@ -82,12 +85,20 @@ module Einvoicing
         @token_expires_at = Time.now + data.fetch("expires_in", 3600).to_i - 60
       end
 
+      def cpro_account_header
+        return nil unless @technical_login && @technical_password
+
+        require "base64"
+        Base64.strict_encode64("#{@technical_login}:#{@technical_password}")
+      end
+
       def post(path, body)
         uri = URI("#{base_url}#{path}")
         req = Net::HTTP::Post.new(uri)
         req["Authorization"] = "Bearer #{access_token}"
         req["Content-Type"]  = "application/json;charset=UTF-8"
         req["Accept"]        = "application/json"
+        req["cpro-account"]  = cpro_account_header if cpro_account_header
         req.body = body.to_json
         res = Net::HTTP.start(uri.host, uri.port, use_ssl: true) { |h| h.request(req) }
         handle_response(res)
