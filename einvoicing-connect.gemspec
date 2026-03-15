@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
     "source_code_uri" => "https://github.com/sxnlabs/einvoicing-connect"
   }
   s.required_ruby_version = ">= 3.2"
-  s.files = Dir["lib/**/*.rb"] + Dir["config/locales/*.yml"]
+  s.files = Dir["lib/**/*.rb"] + Dir["config/locales/*.yml"] + ["README.md", "LICENSE"]
   s.add_dependency "einvoicing", "~> 0.5"
   s.add_development_dependency "rspec",                 "~> 3.13"
   s.add_development_dependency "webmock",               "~> 3.0"

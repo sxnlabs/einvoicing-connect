@@ -2,8 +2,8 @@
 
 require "spec_helper"
 
-RSpec.describe Einvoicing::PPF::Submitter do
-  let(:client)    { instance_double(Einvoicing::PPF::Client) }
+RSpec.describe Einvoicing::Connect::FR::PPF::Submitter do
+  let(:client)    { instance_double(Einvoicing::Connect::FR::PPF::Client) }
   let(:submitter) { described_class.new(client) }
 
   let(:buyer) do
@@ -57,8 +57,8 @@ RSpec.describe Einvoicing::PPF::Submitter do
       expect(client).to have_received(:submit_invoice).with(hash_including(codeService: "SRV001"))
     end
 
-    it "passes numero_engagement to the payload when provided" do
-      submitter.submit(invoice, numero_engagement: "ENG-001")
+    it "passes engagement_number to the payload when provided" do
+      submitter.submit(invoice, engagement_number: "ENG-001")
       expect(client).to have_received(:submit_invoice).with(hash_including(numeroEngagement: "ENG-001"))
     end
 
@@ -76,7 +76,7 @@ RSpec.describe Einvoicing::PPF::Submitter do
 
       it "raises ValidationError" do
         expect { submitter.submit(invoice) }
-          .to raise_error(Einvoicing::PPF::ValidationError, /not found in Chorus Pro/)
+          .to raise_error(Einvoicing::Connect::FR::PPF::ValidationError, /not found in Chorus Pro/)
       end
     end
   end

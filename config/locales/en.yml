@@ -8,6 +8,11 @@ en:
         not_found: "Not found: %{body}"
         api_error: "API error %{code}: %{body}"
         structure_not_found: "Buyer SIRET %{siret} not found in Chorus Pro"
+        missing_technical_account: "Chorus Pro technical account (login/password) is required for API submission"
+      pennylane:
+        auth_failed: "Pennylane authentication failed — check your API key"
+        submission_failed: "Pennylane invoice submission failed: %{code} %{body}"
+        invalid_invoice: "Invoice is missing required fields for Pennylane submission"
       fr:
         siret_api_error: "SIRET lookup failed: %{message}"
         siret_not_found: "No company found for SIREN: %{siren}"
