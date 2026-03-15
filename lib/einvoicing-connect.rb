@@ -8,6 +8,9 @@ require_relative "einvoicing/connect/fr/ppf/client"
 require_relative "einvoicing/connect/fr/ppf/invoice_adapter"
 require_relative "einvoicing/connect/fr/ppf/submitter"
 require_relative "einvoicing/connect/fr/siret_lookup"
+require_relative "einvoicing/connect/fr/pennylane/errors"
+require_relative "einvoicing/connect/fr/pennylane/adapter"
+require_relative "einvoicing/connect/fr/pennylane/client"
 
 module Einvoicing
   module Connect

@@ -9,6 +9,10 @@ fr:
         api_error: "Erreur API %{code} : %{body}"
         structure_not_found: "SIRET acheteur %{siret} non trouvé dans Chorus Pro"
         missing_technical_account: "Le compte technique Chorus Pro (identifiant/mot de passe) est requis pour la soumission API"
+      pennylane:
+        auth_failed: "Échec de l'authentification Pennylane — vérifiez votre clé API"
+        submission_failed: "Échec de la soumission de la facture Pennylane : %{code} %{body}"
+        invalid_invoice: "La facture est incomplète pour la soumission Pennylane"
       fr:
         siret_api_error: "Échec de la recherche SIRET : %{message}"
         siret_not_found: "Aucune entreprise trouvée pour le SIREN : %{siren}"
