@@ -4,7 +4,7 @@ require "spec_helper"
 require "webmock/rspec"
 require "base64"
 
-RSpec.describe Einvoicing::PPF::Client do
+RSpec.describe Einvoicing::Connect::FR::PPF::Client do
   let(:client_id)     { "test_client_id" }
   let(:client_secret) { "test_client_secret" }
   let(:client)        { described_class.new(client_id: client_id, client_secret: client_secret, sandbox: true) }
@@ -43,7 +43,7 @@ RSpec.describe Einvoicing::PPF::Client do
     it "raises AuthenticationError when OAuth request fails" do
       stub_request(:post, "https://sandbox-oauth.piste.gouv.fr/api/oauth/token")
         .to_return(status: 400, body: "Bad Request")
-      expect { client.access_token }.to raise_error(Einvoicing::PPF::AuthenticationError, /OAuth token request failed/)
+      expect { client.access_token }.to raise_error(Einvoicing::Connect::FR::PPF::AuthenticationError, /OAuth token request failed/)
     end
   end
 
@@ -70,28 +70,28 @@ RSpec.describe Einvoicing::PPF::Client do
       stub_request(:post, "https://sandbox-api.piste.gouv.fr/cpro/factures/v1/rechercher/structure")
         .to_return(status: 401, body: { error: "unauthorized" }.to_json)
       expect { client.find_structure(siret: "35600000000000") }
-        .to raise_error(Einvoicing::PPF::AuthenticationError, /Unauthorized/)
+        .to raise_error(Einvoicing::Connect::FR::PPF::AuthenticationError, /Unauthorized/)
     end
 
     it "raises AuthorizationError on 403" do
       stub_request(:post, "https://sandbox-api.piste.gouv.fr/cpro/factures/v1/rechercher/structure")
         .to_return(status: 403, body: { error: "forbidden" }.to_json)
       expect { client.find_structure(siret: "35600000000000") }
-        .to raise_error(Einvoicing::PPF::AuthorizationError, /Forbidden/)
+        .to raise_error(Einvoicing::Connect::FR::PPF::AuthorizationError, /Forbidden/)
     end
 
     it "raises NotFoundError on 404" do
       stub_request(:post, "https://sandbox-api.piste.gouv.fr/cpro/factures/v1/rechercher/structure")
         .to_return(status: 404, body: { error: "not found" }.to_json)
       expect { client.find_structure(siret: "35600000000000") }
-        .to raise_error(Einvoicing::PPF::NotFoundError, /Not found/)
+        .to raise_error(Einvoicing::Connect::FR::PPF::NotFoundError, /Not found/)
     end
 
     it "raises APIError on 500" do
       stub_request(:post, "https://sandbox-api.piste.gouv.fr/cpro/factures/v1/rechercher/structure")
         .to_return(status: 500, body: "Internal Server Error")
       expect { client.find_structure(siret: "35600000000000") }
-        .to raise_error(Einvoicing::PPF::APIError, /API error 500/)
+        .to raise_error(Einvoicing::Connect::FR::PPF::APIError, /API error 500/)
     end
   end
 

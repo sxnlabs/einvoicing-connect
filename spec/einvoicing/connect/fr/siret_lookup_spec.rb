@@ -3,7 +3,7 @@
 require "spec_helper"
 require "webmock/rspec"
 
-RSpec.describe Einvoicing::FR::SiretLookup do
+RSpec.describe Einvoicing::Connect::FR::SiretLookup do
   let(:api_url) { "https://recherche-entreprises.api.gouv.fr/search" }
 
   let(:success_body) do

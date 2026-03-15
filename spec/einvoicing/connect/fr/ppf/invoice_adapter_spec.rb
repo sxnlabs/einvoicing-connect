@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-RSpec.describe Einvoicing::PPF::InvoiceAdapter do
+RSpec.describe Einvoicing::Connect::FR::PPF::InvoiceAdapter do
   let(:seller) do
     Einvoicing::Party.new(
       name:  "Acme SAS",
