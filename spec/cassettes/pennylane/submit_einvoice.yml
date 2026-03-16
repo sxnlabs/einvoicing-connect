@@ -1,0 +1,155 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://app.pennylane.com/api/external/v2/customer_invoices/e_invoices/imports
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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IyI+CiAgICAgIDxwZGZhaWQ6cGFydD4zPC9wZGZhaWQ6cGFydD4KICAgICAgPHBkZmFpZDpjb25mb3JtYW5jZT5CPC9wZGZhaWQ6Y29uZm9ybWFuY2U+CiAgICAgIDxmeDpEb2N1bWVudFR5cGU+SU5WT0lDRTwvZng6RG9jdW1lbnRUeXBlPgogICAgICA8Zng6RG9jdW1lbnRGaWxlTmFtZT5mYWN0dXIteC54bWw8L2Z4OkRvY3VtZW50RmlsZU5hbWU+CiAgICAgIDxmeDpWZXJzaW9uPjEuMDwvZng6VmVyc2lvbj4KICAgICAgPGZ4OkNvbmZvcm1hbmNlTGV2ZWw+RU4gMTY5MzE8L2Z4OkNvbmZvcm1hbmNlTGV2ZWw+CiAgICA8L3JkZjpEZXNjcmlwdGlvbj4KICAgIDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiCiAgICAgIHhtbG5zOnBkZmFFeHRlbnNpb249Imh0dHA6Ly93d3cuYWlpbS5vcmcvcGRmYS9ucy9leHRlbnNpb24vIgogICAgICB4bWxuczpwZGZhU2NoZW1hPSJodHRwOi8vd3d3LmFpaW0ub3JnL3BkZmEvbnMvc2NoZW1hIyIKICAgICAgeG1sbnM6cGRmYVByb3BlcnR5PSJodHRwOi8vd3d3LmFpaW0ub3JnL3BkZmEvbnMvcHJvcGVydHkjIj4KICAgICAgPHBkZmFFeHRlbnNpb246c2NoZW1hcz4KICAgICAgICA8cmRmOkJhZz4KICAgICAgICAgIDxyZGY6bGkgcmRmOnBhcnNlVHlwZT0iUmVzb3VyY2UiPgogICAgICAgICAgICA8cGRmYVNjaGVtYTpzY2hlbWE+RmFjdHVyLVggUERGQSBFeHRlbnNpb24gU2NoZW1hPC9wZGZhU2NoZW1hOnNjaGVtYT4KICAgICAgICAgICAgPHBkZmFTY2hlbWE6bmFtZXNwYWNlVVJJPnVybjpmYWN0dXIteDpwZGZhOkNyb3NzSW5kdXN0cnlEb2N1bWVudDppbnZvaWNlOjFwMCM8L3BkZmFTY2hlbWE6bmFtZXNwYWNlVVJJPgogICAgICAgICAgICA8cGRmYVNjaGVtYTpwcmVmaXg+Zng8L3BkZmFTY2hlbWE6cHJlZml4PgogICAgICAgICAgICA8cGRmYVNjaGVtYTpwcm9wZXJ0eT4KICAgICAgICAgICAgICA8cmRmOlNlcT4KICAgICAgICAgICAgICAgIDxyZGY6bGkgcmRmOnBhcnNlVHlwZT0iUmVzb3VyY2UiPgogICAgICAgICAgICAgICAgICA8cGRmYVByb3BlcnR5Om5hbWU+RG9jdW1lbnRGaWxlTmFtZTwvcGRmYVByb3BlcnR5Om5hbWU+CiAgICAgICAgICAgICAgICAgIDxwZGZhUHJvcGVydHk6dmFsdWVUeXBlPlRleHQ8L3BkZmFQcm9wZXJ0eTp2YWx1ZVR5cGU+CiAgICAgICAgICAgICAgICAgIDxwZGZhUHJvcGVydHk6Y2F0ZWdvcnk+ZXh0ZXJuYWw8L3BkZmFQcm9wZXJ0eTpjYXRlZ29yeT4KICAgICAgICAgICAgICAgICAgPHBkZmFQcm9wZXJ0eTpkZXNjcmlwdGlvbj5UaGUgbmFtZSBvZiB0aGUgZW1iZWRkZWQgWE1MIGludm9pY2UgZmlsZTwvcGRmYVByb3BlcnR5OmRlc2NyaXB0aW9uPgogICAgICAgICAgICAgICAgPC9yZGY6bGk+CiAgICAgICAgICAgICAgICA8cmRmOmxpIHJkZjpwYXJzZVR5cGU9IlJlc291cmNlIj4KICAgICAgICAgICAgICAgICAgPHBkZmFQcm9wZXJ0eTpuYW1lPkRvY3VtZW50VHlwZTwvcGRmYVByb3BlcnR5Om5hbWU+CiAgICAgICAgICAgICAgICAgIDxwZGZhUHJvcGVydHk6dmFsdWVUeXBlPlRleHQ8L3BkZmFQcm9wZXJ0eTp2YWx1ZVR5cGU+CiAgICAgICAgICAgICAgICAgIDxwZGZhUHJvcGVydHk6Y2F0ZWdvcnk+ZXh0ZXJuYWw8L3BkZmFQcm9wZXJ0eTpjYXRlZ29yeT4KICAgICAgICAgICAgICAgICAgPHBkZmFQcm9wZXJ0eTpkZXNjcmlwdGlvbj5UaGUgdHlwZSBvZiB0aGUgaHlicmlkIGRvY3VtZW50IChJTlZPSUNFKTwvcGRmYVByb3BlcnR5OmRlc2NyaXB0aW9uPgogICAgICAgICAgICAgICAgPC9yZGY6bGk+CiAgICAgICAgICAgICAgICA8cmRmOmxpIHJkZjpwYXJzZVR5cGU9IlJlc291cmNlIj4KICAgICAgICAgICAgICAgICAgPHBkZmFQcm9wZXJ0eTpuYW1lPlZlcnNpb248L3BkZmFQcm9wZXJ0eTpuYW1lPgogICAgICAgICAgICAgICAgICA8cGRmYVByb3BlcnR5OnZhbHVlVHlwZT5UZXh0PC9wZGZhUHJvcGVydHk6dmFsdWVUeXBlPgogICAgICAgICAgICAgICAgICA8cGRmYVByb3BlcnR5OmNhdGVnb3J5PmV4dGVybmFsPC9wZGZhUHJvcGVydHk6Y2F0ZWdvcnk+CiAgICAgICAgICAgICAgICAgIDxwZGZhUHJvcGVydHk6ZGVzY3JpcHRpb24+VGhlIHZlcnNpb24gb2YgdGhlIEZhY3R1ci1YIHNwZWNpZmljYXRpb248L3BkZmFQcm9wZXJ0eTpkZXNjcmlwdGlvbj4KICAgICAgICAgICAgICAgIDwvcmRmOmxpPgogICAgICAgICAgICAgICAgPHJkZjpsaSByZGY6cGFyc2VUeXBlPSJSZXNvdXJjZSI+CiAgICAgICAgICAgICAgICAgIDxwZGZhUHJvcGVydHk6bmFtZT5Db25mb3JtYW5jZUxldmVsPC9wZGZhUHJvcGVydHk6bmFtZT4KICAgICAgICAgICAgICAgICAgPHBkZmFQcm9wZXJ0eTp2YWx1ZVR5cGU+VGV4dDwvcGRmYVByb3BlcnR5OnZhbHVlVHlwZT4KICAgICAgICAgICAgICAgICAgPHBkZmFQcm9wZXJ0eTpjYXRlZ29yeT5leHRlcm5hbDwvcGRmYVByb3BlcnR5OmNhdGVnb3J5PgogICAgICAgICAgICAgICAgICA8cGRmYVByb3BlcnR5OmRlc2NyaXB0aW9uPlRoZSBjb25mb3JtYW5jZSBsZXZlbCBvZiB0aGUgZW1iZWRkZWQgWE1MIGludm9pY2U8L3BkZmFQcm9wZXJ0eTpkZXNjcmlwdGlvbj4KICAgICAgICAgICAgICAgIDwvcmRmOmxpPgogICAgICAgICAgICAgIDwvcmRmOlNlcT4KICAgICAgICAgICAgPC9wZGZhU2NoZW1hOnByb3BlcnR5PgogICAgICAgICAgPC9yZGY6bGk+CiAgICAgICAgPC9yZGY6QmFnPgogICAgICA8L3BkZmFFeHRlbnNpb246c2NoZW1hcz4KICAgIDwvcmRmOkRlc2NyaXB0aW9uPgogIDwvcmRmOlJERj4KPC94OnhtcG1ldGE+Cjw/eHBhY2tldCBlbmQ9InciPz4KCmVuZHN0cmVhbQplbmRvYmoKOSAwIG9iago8PC9Nb2REYXRlKEQ6MjAyNjAzMTYxODE5MTgrMDEnMDAnKS9Qcm9kdWNlcihIZXhhUERGIHZlcnNpb24gMS42LjApPj4KZW5kb2JqCjEwIDAgb2JqCjw8L1R5cGUvUGFnZXMvS2lkc1sxMSAwIFJdL0NvdW50IDE+PgplbmRvYmoKMTEgMCBvYmoKPDwvVHlwZS9QYWdlL01lZGlhQm94WzAgMCA1OTUuMjc1NTkxIDg0MS44ODk3NjRdL1BhcmVudCAxMCAwIFIvUmVzb3VyY2VzPDwvRm9udDw8L0YxIDEyIDAgUj4+Pj4vQ29udGVudHMgMTMgMCBSPj4KZW5kb2JqCjEyIDAgb2JqCjw8L1R5cGUvRm9udC9TdWJ0eXBlL1R5cGUxL0Jhc2VGb250L0hlbHZldGljYS9Gb250RGVzY3JpcHRvciAxNCAwIFIvRmlyc3RDaGFyIDMyL0xhc3RDaGFyIDI1NS9XaWR0aHNbMjc4LjAgMjc4LjAgMzU1LjAgNTU2LjAgNTU2LjAgODg5LjAgNjY3LjAgMTkxLjAgMzMzLjAgMzMzLjAgMzg5LjAgNTg0LjAgMjc4LjAgMzMzLjAgMjc4LjAgMjc4LjAgNTU2LjAgNTU2LjAgNTU2LjAgNTU2LjAgNTU2LjAgNTU2LjAgNTU2LjAgNTU2LjAgNTU2LjAgNTU2LjAgMjc4LjAgMjc4LjAgNTg0LjAgNTg0LjAgNTg0LjAgNTU2LjAgMTAxNS4wIDY2Ny4wIDY2Ny4wIDcyMi4wIDcyMi4wIDY2Ny4wIDYxMS4wIDc3OC4wIDcyMi4wIDI3OC4wIDUwMC4wIDY2Ny4wIDU1Ni4wIDgzMy4wIDcyMi4wIDc3OC4wIDY2Ny4wIDc3OC4wIDcyMi4wIDY2Ny4wIDYxMS4wIDcyMi4wIDY2Ny4wIDk0NC4wIDY2Ny4wIDY2Ny4wIDYxMS4wIDI3OC4wIDI3OC4wIDI3OC4wIDQ2OS4wIDU1Ni4wIDMzMy4wIDU1Ni4wIDU1Ni4wIDUwMC4wIDU1Ni4wIDU1Ni4wIDI3OC4wIDU1Ni4wIDU1Ni4wIDIyMi4wIDIyMi4wIDUwMC4wIDIyMi4wIDgzMy4wIDU1Ni4wIDU1Ni4wIDU1Ni4wIDU1Ni4wIDMzMy4wIDUwMC4wIDI3OC4wIDU1Ni4wIDUwMC4wIDcyMi4wIDUwMC4wIDUwMC4wIDUwMC4wIDMzNC4wIDI2MC4wIDMzNC4wIDU4NC4wIDM1MC4wIDU1Ni4wIDM1MC4wIDIyMi4wIDU1Ni4wIDMzMy4wIDEwMDAuMCA1NTYuMCA1NTYuMCAzMzMuMCAxMDAwLjAgNjY3LjAgMzMzLjAgMTAwMC4wIDM1MC4wIDYxMS4wIDM1MC4wIDM1MC4wIDIyMi4wIDIyMi4wIDMzMy4wIDMzMy4wIDM1MC4wIDU1Ni4wIDEwMDAuMCAzMzMuMCAxMDAwLjAgNTAwLjAgMzMzLjAgOTQ0LjAgMzUwLjAgNTAwLjAgNjY3LjAgMjc4LjAgMzMzLjAgNTU2LjAgNTU2LjAgNTU2LjAgNTU2LjAgMjYwLjAgNTU2LjAgMzMzLjAgNzM3LjAgMzcwLjAgNTU2LjAgNTg0LjAgMzMzLjAgNzM3LjAgMzMzLjAgNDAwLjAgNTg0LjAgMzMzLjAgMzMzLjAgMzMzLjAgNTU2LjAgNTM3LjAgMjc4LjAgMzMzLjAgMzMzLjAgMzY1LjAgNTU2LjAgODM0LjAgODM0LjAgODM0LjAgNjExLjAgNjY3LjAgNjY3LjAgNjY3LjAgNjY3LjAgNjY3LjAgNjY3LjAgMTAwMC4wIDcyMi4wIDY2Ny4wIDY2Ny4wIDY2Ny4wIDY2Ny4wIDI3OC4wIDI3OC4wIDI3OC4wIDI3OC4wIDcyMi4wIDcyMi4wIDc3OC4wIDc3OC4wIDc3OC4wIDc3OC4wIDc3OC4wIDU4NC4wIDc3OC4wIDcyMi4wIDcyMi4wIDcyMi4wIDcyMi4wIDY2Ny4wIDY2Ny4wIDYxMS4wIDU1Ni4wIDU1Ni4wIDU1Ni4wIDU1Ni4wIDU1Ni4wIDU1Ni4wIDg4OS4wIDUwMC4wIDU1Ni4wIDU1Ni4wIDU1Ni4wIDU1Ni4wIDI3OC4wIDI3OC4wIDI3OC4wIDI3OC4wIDU1Ni4wIDU1Ni4wIDU1Ni4wIDU1Ni4wIDU1Ni4wIDU1Ni4wIDU1Ni4wIDU4NC4wIDYxMS4wIDU1Ni4wIDU1Ni4wIDU1Ni4wIDU1Ni4wIDUwMC4wIDU1Ni4wIDUwMC4wXS9FbmNvZGluZy9XaW5BbnNpRW5jb2Rpbmc+PgplbmRvYmoKMTMgMCBvYmoKPDwvRmlsdGVyL0ZsYXRlRGVjb2RlL0xlbmd0aCA2OT4+c3RyZWFtCnja03czVDA0UghJ43IK4TJUMABCQwVTAwVzCwOFkFyuaA03R+eQ0CBXBUdnX1ddT78QV3ddAwNDzdgQLy7XEC4AqkYN9QplbmRzdHJlYW0KZW5kb2JqCjE0IDAgb2JqCjw8L1R5cGUvRm9udERlc2NyaXB0b3IvRm9udE5hbWUvSGVsdmV0aWNhL0ZvbnRXZWlnaHQgNTAwL0ZvbnRCQm94Wy0xNjYuMCAtMjI1LjAgMTAwMC4wIDkzMS4wXS9JdGFsaWNBbmdsZSAwLjAvQXNjZW50IDcxOC4wL0Rlc2NlbnQgLTIwNy4wL0NhcEhlaWdodCA3MTguMC9YSGVpZ2h0IDUyMy4wL1N0ZW1IIDc2LjAvU3RlbVYgODguMC9GbGFncyAzMj4+CmVuZG9iagp4cmVmCjAgMTUKMDAwMDAwMDAwMCA2NTUzNSBmIAowMDAwMDAwMDE4IDAwMDAwIG4gCjAwMDAwMDE3MTEgMDAwMDAgbiAKMDAwMDAwMTg0NSAwMDAwMCBuIAowMDAwMDAxOTQ5IDAwMDAwIG4gCjAwMDAwMDE5ODkgMDAwMDAgbiAKMDAwMDAwMjAzNiAwMDAwMCBuIAowMDAwMDA0NzM2IDAwMDAwIG4gCjAwMDAwMDQ4NzkgMDAwMDAgbiAKMDAwMDAwODA0MiAwMDAwMCBuIAowMDAwMDA4MTI3IDAwMDAwIG4gCjAwMDAwMDgxODAgMDAwMDAgbiAKMDAwMDAwODMxMCAwMDAwMCBuIAowMDAwMDA5ODA2IDAwMDAwIG4gCjAwMDAwMDk5NDIgMDAwMDAgbiAKdHJhaWxlcgo8PC9Sb290IDMgMCBSL0lEWygjpzcnn6ByrzGYdAdZbxtiKSiw1bGkL4XszdGpwiOIse6nKV0vSW5mbyA5IDAgUi9TaXplIDE1Pj4Kc3RhcnR4cmVmCjEwMTU5CiUlRU9GCg0KLS1SdWJ5Qm91bmRhcnlkZTA3Yjk2NmYwYzZjOWZiZWRmNDAxNjQyNDlmZWZlNy0tDQo=
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - app.pennylane.com
+      Authorization:
+      - Bearer <PENNYLANE_API_KEY>
+      Content-Type:
+      - multipart/form-data; boundary=RubyBoundaryde07b966f0c6c9fbedf40164249fefe7
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Mon, 16 Mar 2026 17:19:19 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '96'
+      Connection:
+      - keep-alive
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 9dd56c0e1c513ccb-CDG
+      Cf-Cache-Status:
+      - DYNAMIC
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Etag:
+      - W/"f7603a8f2b32ffccb919fc47520e4a9f"
+      Set-Cookie:
+      - __cf_bm=xqVqw_j6xhAhYLPpNtIPbtg9mixrwAUP8nAkLdxnCVU-1773681559-1.0.1.1-8BRFzqW4c3gxpvr..iAoZMQQdTAWcS0x9vv9frJ43NtXqyl9HOxT4R65ZmaVpdgg66TPHqEGBDCfbd.aA0jrQvPhRYyk_EE4TjxSTJ0L898;
+        path=/; expires=Mon, 16-Mar-26 17:49:19 GMT; domain=.pennylane.com; HttpOnly;
+        Secure; SameSite=None
+      - _jeancaisse_session=1TuTmLFArM8TG0SHfPlDcW5UlQUX7BW0da%2BPCSQENuh1cbdHzJJA9dGO%2Fua01wI2cYgEH7BZUUn1%2FT1ZO%2FcOut5MXvmizbuZuVJnrlDYoCsZ5e6EotyTqd8ZyWIPOWoH79f4hHrbpwHCWD7hFPHIBS34hjF6F4jbn22HOX3jlaBrdAZQzorStkwNn6tPWa4hIkwMYc9qOAIhPox55PK4W7BOoY8zD9iQ3xi3aDGbrg%3D%3D--k6Z%2FC3JNgHlp3Agc--x2bnnMCbMkqidM%2FnSJCPlw%3D%3D;
+        path=/; secure; httponly; samesite=lax
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains; preload
+      Api-Version-Expires-At:
+      - ''
+      Content-Security-Policy:
+      - 'default-src ''self''; base-uri ''self''; connect-src ''self'' https: blob:
+        https://*.birdie.so/ wss://*.birdie.so https://*.birdiefly.com wss://*.birdiefly.com
+        https://*.screeb.app wss://*.screeb.app https://track-eu.customer.io https://*.api.gist.build
+        https://*.cloud.gist.build https://sentry.io wss://ws-eu.pusher.com wss://*.intercom.io
+        wss://*.intercom-messenger.com https://api.segment.io https://cdn.segment.com
+        https://*.intercom.io https://*.eu.intercom.io https://rum.browser-intake-datadoghq.eu
+        https://browser-intake-datadoghq.eu https://in.eu2.segmentapis.com https://events.eu1.segmentapis.com
+        https://*.amplitude.com; child-src ''self'' data: https://demo.arcade.software
+        https://d1sf7nqdl8wqk.cloudfront.net https://serve-cdn-assets.pennylane.workers.dev
+        https://*.pennylane.com https://jeancaisse-20190924.s3.eu-west-1.amazonaws.com
+        https://challenges.cloudflare.com https://app.datadoghq.eu/ https://www.figma.com
+        https://*.usejimo.com https://*.usesjimo.com https://*.githubusercontent.com
+        https://*.google.com blob: https://js.intercomcdn.com https://widget.intercom.io
+        https://intercom-sheets.com https://video-messages.intercomcdn.com https://www.loom.com
+        https://metabase.pennylane.tech https://metabase.pennylane.com https://*.pennylane.com
+        https://identity.swan.io https://stage.teledec.fr https://www.teledec.fr https://form.typeform.com/
+        https://www.youtube.com https://m.youtube.com https://content.pennylane.com
+        https://pay-sandbox.gocardless.com https://pay.gocardless.com https://js.stripe.com
+        https://hooks.stripe.com https://view.officeapps.live.com; font-src ''self''
+        http: https: data: blob:; frame-src ''self'' data: https://demo.arcade.software
+        https://d1sf7nqdl8wqk.cloudfront.net https://serve-cdn-assets.pennylane.workers.dev
+        https://*.pennylane.com https://jeancaisse-20190924.s3.eu-west-1.amazonaws.com
+        https://challenges.cloudflare.com https://app.datadoghq.eu/ https://www.figma.com
+        https://*.usejimo.com https://*.usesjimo.com https://renderer.gist.build https://code.gist.build
+        https://*.githubusercontent.com https://*.google.com blob: https://js.intercomcdn.com
+        https://widget.intercom.io https://intercom-sheets.com https://video-messages.intercomcdn.com
+        https://www.loom.com https://metabase.pennylane.tech https://metabase.pennylane.com
+        https://*.pennylane.com https://identity.swan.io https://mandate-v2.sandbox.swan.io
+        https://mandate-v2.swan.io https://stage.teledec.fr https://www.teledec.fr
+        https://form.typeform.com/ https://www.youtube.com https://m.youtube.com https://content.pennylane.com
+        https://pay-sandbox.gocardless.com https://pay.gocardless.com https://*.screeb.app
+        wss://*.screeb.app https://js.stripe.com https://hooks.stripe.com https://view.officeapps.live.com
+        https://mandate-previews.gocardless.com/ https://apps.universign.com https://apps.alpha.universign.com;
+        frame-ancestors ''self'' data: https://business.foodetective.co https://business.staging.foodtekk.com
+        https://renderer.gist.build https://code.gist.build https://*.google.com https://*.usejimo.com
+        https://*.usesjimo.com https://*.pennylane.com blob:; img-src ''self'' https:
+        blob: data: https://d1sf7nqdl8wqk.cloudfront.net https://serve-cdn-assets.pennylane.workers.dev
+        https://*.pennylane.com https://track-eu.customer.io https://*.api.gist.build
+        https://*.cloud.gist.build https://*.amplitude.com; media-src ''self'' data:
+        https://js.intercomcdn.com https://widget.intercom.io https://intercom-sheets.com
+        https://video-messages.intercomcdn.com https://*.amplitude.com; object-src
+        ''self'' mailto: https://d1sf7nqdl8wqk.cloudfront.net https://serve-cdn-assets.pennylane.workers.dev
+        https://*.pennylane.com https://jeancaisse-20190924.s3.eu-west-1.amazonaws.com
+        https://portail.e-facture.net http://www.lei-france.insee.fr https://www.lei-france.insee.fr
+        https://invoice.stripe.com https://mandate-v2.sandbox.swan.io https://mandate-v2.swan.io
+        https://mandate-previews.gocardless.com/; script-src ''self'' ''strict-dynamic''
+        ''unsafe-eval'' ''unsafe-inline'' https: http: https://d1sf7nqdl8wqk.cloudfront.net
+        https://serve-cdn-assets.pennylane.workers.dev https://*.pennylane.com https://*.birdie.so/
+        wss://*.birdie.so https://*.birdiefly.com wss://*.birdiefly.com https://cdn.segment.com
+        https://www.figma.com https://assets.customer.io https://code.gist.build https://js.intercomcdn.com
+        https://widget.intercom.io https://intercom-sheets.com https://video-messages.intercomcdn.com
+        https://unpkg.com https://*.screeb.app wss://*.screeb.app https://form.typeform.com/
+        https://www.youtube.com https://m.youtube.com https://appsforoffice.microsoft.com
+        https://*.amplitude.com ''nonce-L/5j2JYA4Fk48IossZ757Q==''; script-src-attr
+        ''unsafe-inline'' ''nonce-L/5j2JYA4Fk48IossZ757Q==''; script-src-elem ''self''
+        ''strict-dynamic'' ''unsafe-eval'' ''unsafe-inline'' https: http: https://d1sf7nqdl8wqk.cloudfront.net
+        https://serve-cdn-assets.pennylane.workers.dev https://*.pennylane.com https://*.birdie.so/
+        wss://*.birdie.so https://*.birdiefly.com wss://*.birdiefly.com https://cdn.segment.com
+        https://*.usejimo.com https://*.usesjimo.com https://www.figma.com https://assets.customer.io
+        https://code.gist.build https://js.intercomcdn.com https://widget.intercom.io
+        https://intercom-sheets.com https://video-messages.intercomcdn.com https://unpkg.com
+        https://*.screeb.app wss://*.screeb.app https://form.typeform.com/ https://www.youtube.com
+        https://m.youtube.com https://appsforoffice.microsoft.com ''nonce-L/5j2JYA4Fk48IossZ757Q=='';
+        style-src ''self'' ''unsafe-inline'' https://d1sf7nqdl8wqk.cloudfront.net
+        https://serve-cdn-assets.pennylane.workers.dev https://*.pennylane.com https://*.birdie.so/
+        wss://*.birdie.so https://*.birdiefly.com wss://*.birdiefly.com https://cdn.jsdelivr.net/
+        https://ka-p.fontawesome.com https://use.fontawesome.com https://fonts.googleapis.com
+        https://www.gstatic.com https://*.typekit.net https://api.pagescreen.io https://code.gist.build
+        https://*.amplitude.com; style-src-elem ''self'' data: ''unsafe-inline'' https://d1sf7nqdl8wqk.cloudfront.net
+        https://serve-cdn-assets.pennylane.workers.dev https://*.pennylane.com https://*.birdie.so/
+        wss://*.birdie.so https://*.birdiefly.com wss://*.birdiefly.com https://cdn.jsdelivr.net/
+        https://ka-p.fontawesome.com https://use.fontawesome.com https://fonts.googleapis.com
+        https://www.gstatic.com https://*.typekit.net https://api.pagescreen.io https://code.gist.build;
+        worker-src ''self'' blob:; report-uri https://pennylane.report-uri.com/r/d/csp/enforce'
+      Ratelimit-Limit:
+      - '25'
+      Ratelimit-Remaining:
+      - '24'
+      Ratelimit-Reset:
+      - '1773681560'
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - '087e50c0-a2d6-4ae1-9bce-e4ea6e7bf3e0'
+      X-Xss-Protection:
+      - '0'
+      Vary:
+      - Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"id":4549251265,"url":"https://app.pennylane.com/api/external/v2/customer_invoices/4549251265"}'
+  recorded_at: Mon, 16 Mar 2026 17:19:19 GMT
+recorded_with: VCR 6.4.0
