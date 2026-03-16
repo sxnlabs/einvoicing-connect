@@ -11,6 +11,7 @@ en:
         missing_technical_account: "Chorus Pro technical account (login/password) is required for API submission"
       pennylane:
         auth_failed: "Pennylane authentication failed — check your API key"
+        oauth_failed: "Pennylane OAuth token refresh failed (HTTP %{code}): %{body}"
         submission_failed: "Pennylane invoice submission failed: %{code} %{body}"
         invalid_invoice: "Invoice is missing required fields for Pennylane submission"
       fr:

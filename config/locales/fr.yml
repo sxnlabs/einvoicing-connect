@@ -11,6 +11,7 @@ fr:
         missing_technical_account: "Le compte technique Chorus Pro (identifiant/mot de passe) est requis pour la soumission API"
       pennylane:
         auth_failed: "Échec de l'authentification Pennylane — vérifiez votre clé API"
+        oauth_failed: "Échec du renouvellement du jeton OAuth Pennylane (HTTP %{code}) : %{body}"
         submission_failed: "Échec de la soumission de la facture Pennylane : %{code} %{body}"
         invalid_invoice: "La facture est incomplète pour la soumission Pennylane"
       fr:
