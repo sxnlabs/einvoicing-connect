@@ -7,20 +7,21 @@ require "json"
 module Einvoicing
   module Connect
     module FR
-      # Consultation of the central e-invoicing directory (annuaire du PPF / AIFE).
+      # Consultation of the central French e-invoicing directory (the PPF
+      # directory operated by DGFiP/AIFE).
       #
       # Given a French SIREN or SIRET, resolves the recipient's e-invoicing
-      # routing information: the registered reception platform (PDP / plateforme
-      # agréée) and its technical routing code. This is the lookup an issuing
-      # platform performs to know *where* to deliver an invoice for a company.
+      # routing information: the registered reception platform (PDP) and its
+      # technical routing code. This is the lookup an issuing platform performs
+      # to know *where* to deliver an invoice for a company.
       #
-      # NOTE: The official DGFiP/AIFE annuaire API specification is not yet final.
-      # The reform pilot opened on 2026-02-27, with general availability on
-      # 2026-09-01. The endpoint and response shape below follow the published
+      # NOTE: The official DGFiP/AIFE directory API specification is not yet
+      # final. The reform pilot opened on 2026-02-27, with general availability
+      # on 2026-09-01. The endpoint and response shape below follow the published
       # interoperability framework and are expected to evolve — point
-      # +Annuaire.api_url=+ at the production endpoint once it is confirmed.
-      module Annuaire
-        # Placeholder endpoint, overridable via Annuaire.api_url= or per call.
+      # +Directory.api_url=+ at the production endpoint once it is confirmed.
+      module Directory
+        # Placeholder endpoint, overridable via Directory.api_url= or per call.
         DEFAULT_API_URL = "https://annuaire.facturation.gouv.fr/api/v1/destinataires" unless defined?(DEFAULT_API_URL)
 
         class << self
@@ -37,9 +38,9 @@ module Einvoicing
         # Returns a Hash on success, or nil on any error / no match:
         #   {
         #     identifier:    "55203253400017",
-        #     maille:        "SIRET",          # or "SIREN"
+        #     level:         "SIRET",          # or "SIREN"
         #     routing_code:  "PDP000123",      # technical routing code
-        #     platform_id:   "0000000000000",  # PDP/PA registration id
+        #     platform_id:   "0000000000000",  # PDP registration id
         #     platform_name: "Acme PDP",
         #     status:        "active"
         #   }
@@ -72,21 +73,23 @@ module Einvoicing
           lookup(identifier, api_url: api_url)
         end
 
-        # Internal: map an annuaire API payload to our routing Hash.
+        # Internal: map a directory API payload to our routing Hash. The string
+        # keys below are the external API field names (kept in their original
+        # form, as with SiretLookup's Sirene keys).
         def self.parse(data)
           entry = data.is_a?(Hash) ? (data["destinataire"] || data["results"]&.first || data) : nil
           return nil unless entry.is_a?(Hash)
 
-          routing_code = entry["codeRoutage"] || entry["routing_code"]
+          routing_code = entry["codeRoutage"]
           return nil if routing_code.to_s.empty?
 
           {
-            identifier:    entry["identifiant"] || entry["identifier"],
-            maille:        entry["maille"],
+            identifier:    entry["identifiant"],
+            level:         entry["maille"],
             routing_code:  routing_code,
-            platform_id:   entry["idPlateforme"] || entry["platform_id"],
-            platform_name: entry["nomPlateforme"] || entry["platform_name"],
-            status:        entry["statut"] || entry["status"]
+            platform_id:   entry["idPlateforme"],
+            platform_name: entry["nomPlateforme"],
+            status:        entry["statut"]
           }
         end
         private_class_method :parse

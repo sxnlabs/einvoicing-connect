@@ -3,7 +3,7 @@
 require "spec_helper"
 require "webmock/rspec"
 
-RSpec.describe Einvoicing::Connect::FR::Annuaire do
+RSpec.describe Einvoicing::Connect::FR::Directory do
   let(:api_url) { described_class.api_url }
 
   let(:success_body) do
@@ -31,7 +31,7 @@ RSpec.describe Einvoicing::Connect::FR::Annuaire do
       result = described_class.lookup("55203253400017")
       expect(result[:routing_code]).to eq("PDP000123")
       expect(result[:platform_name]).to eq("Acme PDP")
-      expect(result[:maille]).to eq("SIRET")
+      expect(result[:level]).to eq("SIRET")
     end
 
     it "accepts a 9-digit SIREN" do

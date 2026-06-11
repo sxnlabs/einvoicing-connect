@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
-- `Connect::FR::Annuaire` — consultation of the central e-invoicing directory (annuaire du PPF) to resolve a recipient's reception platform and routing code from a SIREN/SIRET. Preview: endpoint/response shape configurable pending the final DGFiP/AIFE API specification.
+- `Connect::FR::Directory` — consultation of the central e-invoicing directory (the PPF directory) to resolve a recipient's reception platform and routing code from a SIREN/SIRET. Preview: endpoint/response shape configurable pending the final DGFiP/AIFE API specification.
 
 ## [0.1.0] - 2026-03-16
 
