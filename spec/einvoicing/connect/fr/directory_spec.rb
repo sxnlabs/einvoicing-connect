@@ -23,6 +23,18 @@ RSpec.describe Einvoicing::Connect::FR::Directory do
     { "destinataire" => { "identifiant" => "55203253400017", "codeRoutage" => nil } }.to_json
   end
 
+  let(:platform_only_body) do
+    {
+      "destinataire" => {
+        "identifiant"   => "55203253400017",
+        "maille"        => "SIREN",
+        "codeRoutage"   => nil,
+        "idPlateforme"  => "0000000000018",
+        "nomPlateforme" => "Acme PDP"
+      }
+    }.to_json
+  end
+
   describe ".lookup" do
     it "returns routing info for a valid SIRET" do
       stub_request(:get, api_url).with(query: hash_including("identifiant" => "55203253400017"))
@@ -48,7 +60,17 @@ RSpec.describe Einvoicing::Connect::FR::Directory do
       expect(described_class.lookup("552 032 534 00017")).to be_a(Hash)
     end
 
-    it "returns nil when no routing code is present" do
+    it "keeps a platform-only entry with a nil routing code" do
+      stub_request(:get, api_url).with(query: hash_including("identifiant" => "55203253400017"))
+        .to_return(status: 200, body: platform_only_body, headers: { "Content-Type" => "application/json" })
+
+      result = described_class.lookup("55203253400017")
+      expect(result[:routing_code]).to be_nil
+      expect(result[:platform_id]).to eq("0000000000018")
+      expect(result[:platform_name]).to eq("Acme PDP")
+    end
+
+    it "returns nil when neither routing code nor platform is present" do
       stub_request(:get, api_url).with(query: hash_including("identifiant" => "55203253400017"))
         .to_return(status: 200, body: no_routing_body, headers: { "Content-Type" => "application/json" })
 

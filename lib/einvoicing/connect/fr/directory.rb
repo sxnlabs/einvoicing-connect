@@ -81,13 +81,18 @@ module Einvoicing
           return nil unless entry.is_a?(Hash)
 
           routing_code = entry["codeRoutage"]
-          return nil if routing_code.to_s.empty?
+          platform_id  = entry["idPlateforme"]
+          # An entry is routable as long as it provides a delivery target:
+          # either a technical routing code or the recipient's registered
+          # platform. SIREN/SIRET-level entries may expose only the platform,
+          # with no codeRoutage sub-address — keep those instead of dropping them.
+          return nil if routing_code.to_s.empty? && platform_id.to_s.empty?
 
           {
             identifier:    entry["identifiant"],
             level:         entry["maille"],
             routing_code:  routing_code,
-            platform_id:   entry["idPlateforme"],
+            platform_id:   platform_id,
             platform_name: entry["nomPlateforme"],
             status:        entry["statut"]
           }
