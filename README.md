@@ -168,6 +168,27 @@ Returns a new `Party` instance (non-destructive). Returns the original party unc
 
 ---
 
+### E-invoicing directory (`Connect::FR::Directory`)
+
+Resolves **where to deliver an invoice** for a French company. Under the 2026 reform, every invoice is routed through the central directory (the PPF directory operated by DGFiP/AIFE): the issuing platform looks up the recipient's SIREN/SIRET to obtain the registered reception platform (PDP) and its technical routing code.
+
+```ruby
+routing = Einvoicing::Connect::FR::Directory.lookup("55203253400017")
+routing[:routing_code]  # => "PDP000123"  (technical routing code)
+routing[:platform_name] # => "Acme PDP"
+routing[:level]         # => "SIRET" (or "SIREN")
+
+# Or directly from a Party (prefers SIRET, falls back to SIREN):
+buyer   = Einvoicing::Party.new(name: "Client SA", siret: "55203253400017")
+routing = Einvoicing::Connect::FR::Directory.route(buyer)
+```
+
+Both methods return `nil` on any error or when the recipient is not found in the directory.
+
+> ⚠️ **Preview.** The official DGFiP/AIFE directory API specification is not yet final (reform pilot opened 2026‑02‑27, general availability 2026‑09‑01). The endpoint and response shape are expected to evolve — set `Einvoicing::Connect::FR::Directory.api_url = "..."` (or pass `api_url:` per call) to point at the production endpoint once confirmed.
+
+---
+
 ## Error handling
 
 Each connector defines its own error hierarchy:
