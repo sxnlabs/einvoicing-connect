@@ -96,7 +96,7 @@ RSpec.describe Einvoicing::Connect::FR::Pennylane::Client do
       end
     end
 
-    context "sandbox mode" do
+    context "when in sandbox mode" do
       let(:sandbox_client) { described_class.new(credentials: api_key_creds, sandbox: true) }
 
       before do
@@ -244,7 +244,7 @@ RSpec.describe Einvoicing::Connect::FR::Pennylane::Client do
       end
     end
 
-    context "sandbox OAuth2" do
+    context "when in sandbox mode with OAuth2" do
       let(:sandbox_oauth_creds) do
         Einvoicing::Connect::FR::Pennylane::Credentials.oauth(
           access_token:  "sandbox_token",

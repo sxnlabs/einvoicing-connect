@@ -24,6 +24,10 @@ Style/Documentation:
 
 RSpec/MultipleExpectations:
   Max: 3
+# Integration specs are grouped by platform, not mirrored on the lib/ tree.
+RSpec/SpecFilePathFormat:
+  Exclude:
+    - "spec/integration/**/*"
 RSpec/ExampleLength:
   Max: 10
 RSpec/MultipleMemoizedHelpers:
