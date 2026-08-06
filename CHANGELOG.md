@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-08-07
+
+### Added
+- `Connect::FR::Pennylane::Client#customer_by_reference`, `#create_company_customer`,
+  `#create_individual_customer` and `#find_or_create_customer` — resolving the
+  customer before the import, keyed on the caller's own `external_reference`.
+
+  Pennylane does not match a customer from the imported document. A Factur-X
+  submitted without `invoice_options[:customer_id]` lands as `"incomplete"`
+  with `customer: nil` whatever SIRET or VAT number it carries — verified
+  against the real API, before and after the identifier scheme was corrected
+  in `einvoicing` 0.9.2, and the outcome is the same. Resolving through a
+  stable reference rather than a name keeps a second invoice for the same
+  customer from creating a second customer.
+
 ## [0.2.0] - 2026-08-03
 
 ### Added

@@ -3,6 +3,7 @@
 require "net/http"
 require "json"
 require "uri"
+require "cgi"
 require "securerandom"
 
 module Einvoicing
@@ -34,6 +35,46 @@ module Einvoicing
           # Get invoice status by Pennylane invoice ID.
           def invoice_status(id)
             get("/customer_invoices/#{id}")
+          end
+
+          # Find a customer by the caller's own identifier.
+          #
+          # Pennylane does not match a customer from the invoice itself: a
+          # document imported without +customer_id+ lands as "incomplete" with
+          # customer nil, whatever SIRET or VAT number the Factur-X carries.
+          # +external_reference+ is the caller's key into Pennylane's own
+          # numbering, which is what makes resolution repeatable.
+          #
+          # @return [Hash, nil] the customer, or nil when none carries that reference
+          def customer_by_reference(reference)
+            filter = JSON.generate([ { field: "external_reference", operator: "eq", value: reference } ])
+            get("/customers?filter=#{CGI.escape(filter)}")["items"]&.first
+          end
+
+          # Create a company customer (an organisation, invoiced under its own name).
+          #
+          # @param attributes [Hash] at least +name+ and +billing_address+;
+          #   +reg_no+ carries the SIRET, +external_reference+ the caller's key.
+          def create_company_customer(attributes)
+            post("/company_customers", attributes)
+          end
+
+          # Create an individual customer (a private person).
+          def create_individual_customer(attributes)
+            post("/individual_customers", attributes)
+          end
+
+          # The customer for +reference+, created from +attributes+ if Pennylane
+          # does not know it yet. Idempotent as long as the caller keeps the
+          # reference stable, which is the point of it.
+          #
+          # @param company [Boolean] an organisation rather than a private person
+          def find_or_create_customer(reference:, attributes:, company: true)
+            existing = customer_by_reference(reference)
+            return existing if existing
+
+            payload = attributes.merge(external_reference: reference)
+            company ? create_company_customer(payload) : create_individual_customer(payload)
           end
 
           private

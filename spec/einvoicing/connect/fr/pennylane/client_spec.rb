@@ -129,6 +129,83 @@ RSpec.describe Einvoicing::Connect::FR::Pennylane::Client do
     end
   end
 
+  describe "customers" do
+    let(:customers_url) { "https://app.pennylane.com/api/external/v2/customers" }
+    let(:filter) do
+      JSON.generate([ { field: "external_reference", operator: "eq", value: "artipilote-7" } ])
+    end
+
+    describe "#customer_by_reference" do
+      it "filters on the caller's own reference and returns the customer" do
+        stub_request(:get, "#{customers_url}?filter=#{CGI.escape(filter)}")
+          .with(headers: { "Authorization" => "Bearer test_api_key" })
+          .to_return(status:  200,
+                     body:    { items: [ { id: 55, name: "SCI Les Quais" } ], has_more: false }.to_json,
+                     headers: { "Content-Type" => "application/json" })
+
+        expect(client.customer_by_reference("artipilote-7")["id"]).to eq(55)
+      end
+
+      it "returns nil when Pennylane knows no customer under that reference" do
+        stub_request(:get, "#{customers_url}?filter=#{CGI.escape(filter)}")
+          .to_return(status:  200,
+                     body:    { items: [], has_more: false }.to_json,
+                     headers: { "Content-Type" => "application/json" })
+
+        expect(client.customer_by_reference("artipilote-7")).to be_nil
+      end
+    end
+
+    describe "#find_or_create_customer" do
+      let(:attributes) do
+        { name: "SCI Les Quais", reg_no: "55203253400018",
+          billing_address: { address: "3 quai Neuf", postal_code: "29600",
+                             city: "Morlaix", country_alpha2: "FR" } }
+      end
+
+      it "creates the customer under the reference when none exists" do
+        stub_request(:get, "#{customers_url}?filter=#{CGI.escape(filter)}")
+          .to_return(status: 200, body: { items: [] }.to_json,
+                     headers: { "Content-Type" => "application/json" })
+        creation = stub_request(:post, "https://app.pennylane.com/api/external/v2/company_customers")
+          .with { |req| JSON.parse(req.body)["external_reference"] == "artipilote-7" }
+          .to_return(status: 201, body: { id: 88 }.to_json,
+                     headers: { "Content-Type" => "application/json" })
+
+        result = client.find_or_create_customer(reference: "artipilote-7", attributes: attributes)
+
+        expect(result["id"]).to eq(88)
+        expect(creation).to have_been_requested
+      end
+
+      # Idempotence is the whole point of resolving through a reference: a
+      # second invoice for the same customer must not create a second customer.
+      it "returns the existing customer without creating another" do
+        stub_request(:get, "#{customers_url}?filter=#{CGI.escape(filter)}")
+          .to_return(status: 200, body: { items: [ { id: 55 } ] }.to_json,
+                     headers: { "Content-Type" => "application/json" })
+        creation = stub_request(:post, "https://app.pennylane.com/api/external/v2/company_customers")
+
+        expect(client.find_or_create_customer(reference: "artipilote-7", attributes: attributes)["id"])
+          .to eq(55)
+        expect(creation).not_to have_been_requested
+      end
+
+      it "creates an individual when the customer is a private person" do
+        stub_request(:get, "#{customers_url}?filter=#{CGI.escape(filter)}")
+          .to_return(status: 200, body: { items: [] }.to_json,
+                     headers: { "Content-Type" => "application/json" })
+        creation = stub_request(:post, "https://app.pennylane.com/api/external/v2/individual_customers")
+          .to_return(status: 201, body: { id: 91 }.to_json,
+                     headers: { "Content-Type" => "application/json" })
+
+        client.find_or_create_customer(reference: "artipilote-7", attributes: attributes, company: false)
+
+        expect(creation).to have_been_requested
+      end
+    end
+  end
+
   describe "OAuth2 mode" do
     let(:oauth_creds) do
       Einvoicing::Connect::FR::Pennylane::Credentials.oauth(
