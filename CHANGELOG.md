@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- Pennylane customer resolution — resolve customer before import via `external_reference`, creation and find-or-create helpers to prevent duplicate customers on repeated invoices
+
 ## [0.3.0] - 2026-08-07
 
 ### Added
