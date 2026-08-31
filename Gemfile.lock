@@ -9,7 +9,9 @@ PATH
   remote: .
   specs:
     einvoicing-connect (0.3.0)
+      base64
       einvoicing (~> 0.5)
+      i18n (~> 1.0)
 
 GEM
   remote: https://rubygems.org/

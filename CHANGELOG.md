@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Fixed
+- Declare `base64` and `i18n` as runtime dependencies. `Connect::FR::PPF::Client#cpro_account_header` required `base64`, which stopped being a default gem in Ruby 3.4, without the gemspec declaring it — a Chorus Pro technical account raised `LoadError: cannot load such file -- base64` on its first request. `i18n` was used directly while only ever arriving through the `einvoicing` gem.
 - Pennylane customer resolution — resolve customer before import via `external_reference`, creation and find-or-create helpers to prevent duplicate customers on repeated invoices
 
 ## [0.3.0] - 2026-08-07
