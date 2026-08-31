@@ -1,9 +1,9 @@
 PATH
   remote: .
   specs:
-    einvoicing-connect (0.3.0)
+    einvoicing-connect (0.4.0)
       base64
-      einvoicing (~> 0.5)
+      einvoicing (>= 0.9.3, < 1.0)
       i18n (~> 1.0)
 
 GEM
@@ -171,7 +171,7 @@ CHECKSUMS
   docile (1.4.1) sha256=96159be799bfa73cdb721b840e9802126e4e03dfc26863db73647204c727f21e
   drb (2.2.3) sha256=0b00d6fdb50995fe4a45dea13663493c841112e4068656854646f418fda13373
   einvoicing (0.9.3) sha256=661d576eeda781e456ca2f5f356da8ed3499257a064592fd04ac6da04f22785b
-  einvoicing-connect (0.3.0)
+  einvoicing-connect (0.4.0)
   geom2d (0.4.1) sha256=ea0998ea90c4f2752e24fe13d85a4f89bee689d151316140ebcc6369bf634ed9
   hashdiff (1.2.1) sha256=9c079dbc513dfc8833ab59c0c2d8f230fa28499cc5efb4b8dd276cf931457cd1
   hexapdf (1.10.0) sha256=9c2e8d094876878c6203d441655fafc1890870041456e03205eec7d83edf9db2

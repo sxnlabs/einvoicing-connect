@@ -17,7 +17,10 @@ Gem::Specification.new do |s|
   }
   s.required_ruby_version = ">= 3.2"
   s.files = Dir["lib/**/*.rb"] + Dir["config/locales/*.yml"] + [ "README.md", "LICENSE" ]
-  s.add_dependency "einvoicing", "~> 0.5"
+  # 0.9.3 is the first release that declares bigdecimal and rexml. Anything
+  # older raises LoadError on require "einvoicing" under Ruby 3.4+, so this gem
+  # cannot honestly claim to work with it.
+  s.add_dependency "einvoicing", ">= 0.9.3", "< 1.0"
   # Required directly by lib/, so declared directly: i18n only reached this gem
   # through einvoicing, and base64 stopped being a default gem in Ruby 3.4.
   s.add_dependency "i18n", "~> 1.0"

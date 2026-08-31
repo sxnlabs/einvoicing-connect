@@ -5,7 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [0.4.0] - 2026-08-31
+
+### Removed
+- Four locale keys no code ever looked up: `ppf.missing_technical_account`, `pennylane.invalid_invoice`, `fr.siret_api_error`, `fr.siret_not_found`. They described errors this gem does not raise — `SiretLookup` returns `nil` on every failure path and `cpro_account_header` returns `nil` when the technical account is absent. Only relevant if you were overriding them.
+
+### Changed
+- The `einvoicing` dependency is floored at 0.9.3, the first release that declares `bigdecimal` and `rexml`. Older versions raise `LoadError` on `require "einvoicing"` under Ruby 3.4+.
 
 ### Fixed
 - Declare `base64` and `i18n` as runtime dependencies. `Connect::FR::PPF::Client#cpro_account_header` required `base64`, which stopped being a default gem in Ruby 3.4, without the gemspec declaring it — a Chorus Pro technical account raised `LoadError: cannot load such file -- base64` on its first request. `i18n` was used directly while only ever arriving through the `einvoicing` gem.
