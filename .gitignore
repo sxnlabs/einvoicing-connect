@@ -1,0 +1,6 @@
+# Gemfile.lock is committed on purpose: the CI `lock` job exists to keep it
+# installable on the lowest supported Ruby, which it cannot do if the file
+# is ignored.
+*.gem
+.DS_Store
+coverage/
