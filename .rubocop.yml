@@ -32,3 +32,7 @@ RSpec/ExampleLength:
   Max: 10
 RSpec/MultipleMemoizedHelpers:
   Max: 10
+# The packaging spec checks the gemspec against lib/, not a class.
+RSpec/DescribeClass:
+  Exclude:
+    - "spec/runtime_dependencies_spec.rb"
