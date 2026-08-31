@@ -100,8 +100,15 @@ Dir.mktmpdir("isolated-load") do |dir|
   # missing" everywhere. Extend this list when lib/ starts reading another
   # non-Ruby asset at runtime.
   runtime_assets = [ "config/locales/*.yml" ]
-  missing_assets = runtime_assets.reject do |glob|
-    Dir[File.join(project, glob)].empty? || Dir[File.join(root, glob)].any?
+
+  # File by file, not "does the glob match anything". Packaging en.yml and
+  # dropping fr.yml leaves the glob non-empty, the gem loading, and French
+  # consumers reading untranslated strings.
+  missing_assets = runtime_assets.flat_map do |glob|
+    in_checkout = Dir[File.join(project, glob)].map { |path| path.delete_prefix("#{project}/") }
+    in_package = Dir[File.join(root, glob)].map { |path| path.delete_prefix("#{root}/") }
+
+    in_checkout - in_package
   end
 
   unless missing_assets.empty?
